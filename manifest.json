@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Proseminar Demo Extension",
+  "description": "Demo extension as already shown in the Proseminar on 27.05.2020",
+  "version": "0.1",
+  "icons": {
+    "128": "128.png"
+  },
+  "permissions": [
+    "bookmarks"
+  ],
+  "background" : {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["*://studip.uni-hannover.de/*"],
+    "exclude_matches" : ["file://studip.uni-hannover.de/*"],
+    "css": ["content.css"],
+    "js": ["content.js"]
+  }],
+  "options_page": "options.html",
+  "options_ui": {
+    "chrome_style": true,
+    "page": "options.html"
+  },
+  "browser_action": {
+    "default_title": "Icon Hover",
+    "default_popup": "popup.html"
+  }
+}
+
